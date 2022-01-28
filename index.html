@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="shortcut icon" href="assets/img/car-loan.png" type="img/png">
+    <title>Car Value Estimator</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <main class="main__container">
+            <form class="form" action="#" id="form" method="post" enctype="multipart/form-data"></form>
+
+                <div class="form__deco">
+                    <h1 class="form__title">Сколько стоит автомобиль?</h1>
+                    <div class="form__info">Укажите параметры автомобиля и мы определим его стоимось
+                    </div>
+                    <div class="form__image">
+                        <img src="assets/img/car-loan.png" alt="car">
+                    </div>
+                    <div class="form__buttons">
+                        <div class="button button_color-green" tabindex="22" onclick="checkValidity()">Estimate</div>
+                        <div class="button button_color-red" tabindex="23">Reset</div>
+                    </div>
+                </div>
+
+                <div class="form__body">
+                    <div class="form__item">
+                            <label for="carModel" class="form__label">Модель</label>
+                            <select  id="carModel" name="model" class="form__select" tabindex="1">
+                                <option disabled selected="selected">Выберите модель автомобиля</option>
+                                <option value="Renault Clio">Renault Clio</option>
+                                <option value="Volkswagen Golf">Volkswagen Golf</option>
+                                <option value="Volkswagen Polo">Volkswagen Polo</option>
+                                <option value="Dacia Sandero">Dacia Sandero</option>
+                                <option value="Volkswagen Tiguan">Volkswagen Tiguan</option>
+                                <option value="Peugeot 2008">Peugeot 2008</option>
+                                <option value="Toyota Yaris">Toyota Yaris</option>
+                                <option value="Opel Corsa">Opel Corsa</option>
+                                <option value="Volkswagen T-Roc">Volkswagen T-Roc</option>
+                                <option value="Toyota Corolla">Toyota Corolla</option>
+                            </select>
+                    </div>
+
+                    <div class="form__item">
+                            <label for="carYear" class="form__label">Год</label>
+                            <select  id="carYear" name="year" class="form__select" tabindex="2">
+                                <option disabled selected="selected">Выберите год выпуска</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                            </select>
+                    </div>
+
+                    <div class="form__item">
+                        <p>Двигатель</p>
+                        <div>
+                            <input type="radio" id="petrol" name="motor" value="Бензин" tabindex="3">
+                            <label for="petrol" class="radio__label">Бензин</label>
+
+                            <input type="radio" id="diesel" name="motor" value="Дизель" tabindex="3">
+                            <label for="diesel" class="radio__label">Дизель</label>
+
+                            <input type="radio" id="hybrid" name="motor" value="Гибрид" tabindex="3">
+                            <label for="hybrid" class="radio__label">Гибрид</label>
+                        </div>
+                    </div>
+
+                    <div class="form__item">
+                        <p>Привод</p>
+                        <div>
+                            <input type="radio" id="front-wheel" name="transmission" value="Передний" tabindex="4">
+                            <label for="front-wheel" class="radio__label">Передний</label>
+
+                            <input type="radio" id="rear-wheel" name="transmission" value="Задний" tabindex="4">
+                            <label for="rear-wheel" class="radio__label">Задний</label>
+
+                            <input type="radio" id="four-wheel" name="transmission" value="Полный" tabindex="4">
+                            <label for="four-wheel" class="radio__label">Полный</label>
+                        </div>
+                    </div>
+
+                    <div class="form__item">
+                        <p>Коробка передач</p>
+                        <div>
+                            <input type="radio" id="automatic" name="gearbox" value="Автомат" tabindex="5">
+                            <label for="automatic" class="radio__label">Автомат</label>
+
+                            <input type="radio" id="manual" name="gearbox" value="Механика" tabindex="6">
+                            <label for="manual" class="radio__label">Механика</label>
+                        </div>
+                    </div>
+
+                    <div class="form__item ">
+                        <input type="number" id="mileage" name="mileage" class="form__input" value="" tabindex="7"/>
+                        <label for="mileage" class="form__label">Пробег, км</label>
+                    </div>
+
+                    <div class="form__item">
+                        <p>Опции</p>
+                        <div class="form__options">
+                            <div>
+                                <div>
+                                    <input type="checkbox" id="powerSteering" name="powerSteering" class="checkbox__input" value="yes" tabindex="8"/>
+                                    <label for="powerSteering" class="checkbox__label">Активный усилитель руля</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="audioSystem" name="audioSystem" class="checkbox__input" value="yes" tabindex="9"/>
+                                    <label for="audioSystem" class="checkbox__label">Аудиосистема премиум класса</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="tripComputer" name="tripComputer" class="checkbox__input" value="yes" tabindex="10"/>
+                                    <label for="tripComputer" class="checkbox__label">Бортовой компьютер</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="parkingSensor" name="parkingSensor" class="checkbox__input" value="yes" tabindex="11"/>
+                                    <label for="parkingSensor" class="checkbox__label">Задние датчики парковки</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="rearСamera" name="rearСamera" class="checkbox__input" value="yes" tabindex="12"/>
+                                    <label for="rearСamera" class="checkbox__label">Камера заднего вида</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="climateControl" name="climateControl" class="checkbox__input" value="yes" tabindex="13"/>
+                                    <label for="climateControl" class="checkbox__label">Климат-контроль</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="cruiseControl" name="cruiseControl" class="checkbox__input" value="yes" tabindex="14"/>
+                                    <label for="cruiseControl" class="checkbox__label">Круиз-контроль</label>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <input type="checkbox" id="infotainment" name="infotainment" class="checkbox__input" value="yes" tabindex="15"/>
+                                    <label for="infotainment" class="checkbox__label">Мультимедийная система</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="rearWindowHeating" name="rearWindowHeating" class="checkbox__input" value="yes" tabindex="16"/>
+                                    <label for="rearWindowHeating" class="checkbox__label">Обогрев заднего стекла</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="windscreenHeating" name="windscreenHeating" class="checkbox__input" value="yes" tabindex="17"/>
+                                    <label for="windscreenHeating" class="checkbox__label">Обогрев лобового стекла</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="mirrorsHeating" name="mirrorHeating" class="checkbox__input" value="yes" tabindex="18"/>
+                                    <label for="mirrorHeating" class="checkbox__label">Обогрев наружных зеркал</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="seatsHeating" name="seatsHeating" class="checkbox__input" value="yes" tabindex="19"/>
+                                    <label for="seatsHeating" class="checkbox__label">Обогрев сидений</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="parkingAssist" name="parkingAssist" class="checkbox__input" value="yes" tabindex="20"/>
+                                    <label for="parkingAssist" class="checkbox__label">Система автоматической парковки</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="remoteStart" name="remoteStart" class="checkbox__input" value="yes" tabindex="21"/>
+                                    <label for="remoteStart" class="checkbox__label">Дистанционный запуск двигателя</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

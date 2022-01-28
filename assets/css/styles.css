@@ -1,0 +1,340 @@
+html,
+body {
+    height: 100%;
+    line-height: 160%;
+    font-size: 14px;
+    color: #23262F;
+    background-color: #FFFFFF;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+/* - Позиционирование -------------------------------------- */
+.wrapper {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.main__container {
+    display: grid;
+    grid-template-columns: minmax(1rem, 1fr) minmax(auto, 500px) minmax(auto, 700px) minmax(1rem, 1fr);
+    grid-template-areas:
+        ". form__deco form__body .";
+    padding: 3% 0px;
+}
+
+/**/
+.form__deco {
+    grid-area: form__deco;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.form__image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin-top: 30px;
+}
+
+.form__image img{
+    width: 100%;
+}
+
+.form__buttons {
+    position: relative;
+    display: flex;
+    margin-top: 80px;
+    justify-content: center;
+}
+
+.form__body {
+    grid-area: form__body;
+    margin-left: 5%;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.form__item {
+    width: 100%;
+    margin: 0px 0px 24px 0px;
+    align-self: flex-start;
+    position: relative;
+}
+
+/* - Типографика ------------------------------------------- */
+.form__title {
+    font-size: 32px;
+    color: #87B237;
+    letter-spacing: 0.1em ;
+    line-height: 180%;
+    margin: 0px;
+    padding: 0px 0px 18px 0px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.form__info {
+    font-size: 18px;
+    text-align: center;
+    padding: 12px 0px 30px 0px;
+}
+
+.form__select, .form__input {
+    padding: 24px 0px 2px 0px;
+    background-color: #FFFFFF;
+    border: solid 1px #87898E;
+    border-radius: 8px;
+    transition: all 0.5s ease 0s;
+    color: #87898E;
+}
+
+.select_error, .input_error {
+    border: solid 1px #E53535;
+}
+
+.select_valid, .input_valid {
+    border: solid 1px #87B237;
+    background: url(/assets/img/check.svg) 100% 95%/13px no-repeat;
+    transition: all 0.4s ease 0s;
+}
+
+.form__select:focus, .form__input:focus {
+    border: solid 1px #23262F;
+}
+
+.form__label {
+    z-index: 1;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background-color: #FFFFFF;
+    padding: 0px 5px;
+    overflow: hidden;
+}
+
+.form__label:focus {
+    color: #23262F;
+}
+
+p {
+    margin: 0px 0px 12px 0px;
+}
+
+.form__options {
+    display: inline-flex;
+}
+
+.form__options div {
+    margin-right: 20px;
+}
+
+/* - Оформление: ссылки, кнопки ---------------------------- */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color:#FFFFFF;
+    text-transform: uppercase;
+    border-radius: 35px;
+    padding: 13px 30px;
+    min-width: 60px;
+    cursor: pointer;
+    transition: background-color 0.5s ease 0s;
+}
+
+.button_color-green {
+    background-color: #87B237;
+    margin-right: 15px;
+}
+
+.button_color-red {
+    background-color: #F04930;
+    margin-left: 15px;
+}
+
+.button_color-green:hover {
+    background-color: #c2ec74;
+}
+
+.button_color-red:hover {
+    background-color: #FF8080;
+}
+
+/* --------------------------------------------------------- */
+/*
+
+
+
+
+
+.form__subtitle {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.1em ;
+    text-align: left;
+    text-transform: uppercase;
+    margin: 42px 0px 12px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+p {
+    color: #87898E;
+    margin: 8px 0px;
+}
+
+.form__required {
+    color: #E53535;
+    margin: 8px 0px;
+}
+
+.checkbox__input {
+    display: none;
+}
+
+.checkbox__label {
+    color: #87898E;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.checkbox__label a{
+    color: #87898E;
+    padding: 0px 5px;
+}
+
+.checkbox__input:checked + .checkbox__label::after {
+    transform: scale(1);
+}
+
+.checkbox__label::before{
+    content:"";
+    align-self: flex-start;
+    flex: 0 0 8px;
+    height: 8px;
+    background-color: #FFFFFF;
+    border: solid 1px #87898E;
+    margin: 5px 9px 0px 0px;
+}
+
+.checkbox__label::after{
+    content:"";
+    width: 10px;
+    height: 10px;
+    position:absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #23262F;
+    transform: scale(0);
+    transition: all 0.3s 0s;
+}
+
+.checkbox__input:checked + .checkbox__label::after {
+    margin: 5px 9px 0px 0px;
+
+}
+
+.checkbox__input:checked + .checkbox__label, .checkbox__input:checked + .checkbox__label a {
+    color: #23262F;
+    transform: scale(1);
+}
+
+.newsletter__subtitle {
+    margin-top: 54px;
+}
+
+.form__button {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    background-color: #23262F;
+    border: none;
+    color:#FFFFFF;
+    text-transform: uppercase;
+    border-radius: 1.25rem;
+    padding: 0 3rem;
+    cursor: pointer;
+    transition: background-color 0.5s ease 0s;
+    margin: 48px 0px 48px 0px;
+}
+
+.form__button:hover {
+    background-color: transparent;
+    color: #23262F;
+    border: solid 1px #23262F;
+}
+
+.form__button:active {
+    background-color: transparent;
+    top: 3px;
+    color: #23262F;
+    border: solid 1px #23262F;
+}
+
+.form__item_position-center {
+    display: flex;
+    justify-content: center;
+}
+
+#errorMessage{
+    color: #E53535;
+    text-align: center;
+    margin-top: 48px;
+    margin-bottom: -48px;
+}
+
+#successMessage{
+    color: #05A660;
+    text-align: center;
+    margin-top: 48px;
+}
+
+@media screen and (max-width: 1023px) {
+    .form__box {
+        flex-direction: column;
+    }
+
+    .form__item {
+        width:100%;
+    }
+
+    .form__subtitle {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0.1em ;
+        text-align: left;
+        text-transform: uppercase;
+        margin: 24px 0px 6px 0px;
+    }
+
+    .form__required {
+        margin: 12px 0px 12px 0px;
+    }
+
+    .newsletter__subtitle {
+        margin-top: 44px;
+    }
+}
