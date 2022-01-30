@@ -42,6 +42,26 @@ body {
     margin-top: 30px;
 }
 
+.form__result {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    border: solid 5px #FFBB26;
+    border-radius: 25px;
+    z-index: 1;
+    min-width: 80%;
+    min-height: 190px;
+    padding: 50px 10px 20px 10px;
+    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    background: url(/assets/img/car-loan.png) 5% 90%/ 120px no-repeat;
+}
+
+.form__invisible{
+    display: none;
+}
 
 .form__image img{
     width: 100%;

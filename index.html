@@ -22,11 +22,14 @@
                     <h1 class="form__title">Сколько стоит автомобиль?</h1>
                     <div class="form__info">Укажите параметры автомобиля и мы определим его стоимось
                     </div>
-                    <div class="form__image">
+                    <div class="form__image" id="formImage">
                         <img src="assets/img/car-loan.png" alt="car">
                     </div>
+                    <div class="form__result form__invisible" id="formResult">
+                        <div id="finalResult"></div>
+                    </div>
                     <div class="form__buttons">
-                        <div class="button button_color-green" tabindex="22" onclick="calculate()">Посчитать</div>
+                        <div class="button button_color-green" tabindex="22" onclick="showResult()">Посчитать</div>
                         <div class="button button_color-red" tabindex="23" onclick="location.reload()">Сбросить</div>
                     </div>
                     <div id="totalPrice"></div>

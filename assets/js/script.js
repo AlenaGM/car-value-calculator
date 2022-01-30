@@ -124,9 +124,9 @@ function calculate() {
     }
 
     if(totalPrice > 0){
-        document.getElementById('totalPrice').innerHTML = 'Стоимость машины ' + formatter.format(totalPrice) + ' руб.';
+        document.getElementById('totalPrice').innerHTML = 'стоимость машины ' + formatter.format(totalPrice) + ' руб.';
     } else {
-        document.getElementById('totalPrice').innerHTML = 'Стоимость машины 0 руб.';
+        document.getElementById('totalPrice').innerHTML = 'стоимость машины 0 руб.';
     }
 
 }
@@ -143,4 +143,12 @@ for (const select of selects) {
        calculate();
     })
 }
+
+let showResult = () =>{
+    document.getElementById('formImage').classList.add ('form__invisible');
+    document.getElementById('formResult').classList.remove ('form__invisible');
+    document.getElementById('finalResult').innerHTML = document.getElementById('totalPrice').innerHTML;
+    document.getElementById('totalPrice').innerHTML = '';
+}
+
 
