@@ -195,51 +195,50 @@ p {
 .checkbox__label, .radio__label {
     cursor: pointer;
 }
+
+.form__buttons_mobile {
+    display: none;
+}
 /* --------------------------------------------------------- */
-/*
 
-.form__required {
-    color: #E53535;
-    margin: 8px 0px;
-}
+@media screen and (max-width: 950px) {
+    .main__container {
+        display: grid;
+        grid-template-columns: minmax(1rem, 1fr) minmax(auto, 975px) minmax(1rem, 1fr);
+        grid-template-areas:
+            ". form__deco ."
+            ". form__body ."
+            ". form__buttons_mobile .";
+        padding: 3% 0px;
+    }
 
-#errorMessage{
-    color: #E53535;
-    text-align: center;
-    margin-top: 48px;
-    margin-bottom: -48px;
-}
+    .form__image {
+        display: none;
+    }
 
-#successMessage{
-    color: #05A660;
-    text-align: center;
-    margin-top: 48px;
-}
+    .form__buttons {
+        display: none;
+    }
 
-@media screen and (max-width: 1023px) {
-    .form__box {
+    .form__buttons_mobile {
+        grid-area: form__buttons_mobile;
+        display: inline-flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .form__info {
+        font-size: 18px;
+        text-align: center;
+        padding: 2px 0px 5px 0px;
+    }
+
+    .form__options {
+        display: flex;
         flex-direction: column;
     }
 
-    .form__item {
-        width:100%;
-    }
-
-    .form__subtitle {
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        letter-spacing: 0.1em ;
-        text-align: left;
-        text-transform: uppercase;
-        margin: 24px 0px 6px 0px;
-    }
-
-    .form__required {
-        margin: 12px 0px 12px 0px;
-    }
-
-    .newsletter__subtitle {
-        margin-top: 44px;
+    .form__title {
+        line-height: 140%;
     }
 }
