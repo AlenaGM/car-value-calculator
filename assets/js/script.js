@@ -57,13 +57,13 @@ function calculate() {
 
     for (const transmission of radioTransmission) {
         if (transmission.checked === true) {
-            totalPrice = totalPrice * transmission.value;
+            totalPrice = totalPrice + +transmission.value;
         }
     }
 
     for (const gearbox of radioGearbox) {
         if (gearbox.checked === true) {
-            totalPrice = totalPrice * gearbox.value;
+            totalPrice = totalPrice + +gearbox.value;
         }
     }
 
