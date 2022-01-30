@@ -13,6 +13,7 @@ document.getElementById('carModel').addEventListener('change', function() {
     modelPrice = this.value;
 });
 
+
 document.getElementById('carYear').addEventListener('change', function() {
     yearPrice = this.value;
 });
@@ -128,6 +129,12 @@ function calculate() {
 
 for (const input of inputs) {
     input.addEventListener('input', function () {
+       calculate();
+    })
+}
+
+for (const select of selects) {
+    select.addEventListener('select', function () {
        calculate();
     })
 }

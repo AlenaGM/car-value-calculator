@@ -35,7 +35,7 @@
                 <div class="form__body">
                     <div class="form__item">
                             <label for="carModel" class="form__label">Модель</label>
-                            <select  id="carModel" name="model" class="form__select" tabindex="1">
+                            <select  id="carModel" name="model" class="form__select" tabindex="1" onclick="calculate()">
                                 <option value="0" disabled selected>Выберите модель</option>
                                 <option value="1000">Renault Clio</option>
                                 <option value="2000">Volkswagen Golf</option>
@@ -52,7 +52,7 @@
 
                     <div class="form__item">
                             <label for="carYear" class="form__label">Год</label>
-                            <select  id="carYear" name="year" class="form__select" tabindex="2">
+                            <select  id="carYear" name="year" class="form__select" tabindex="2" onclick="calculate()">
                                 <option value="1" disabled selected>Выберите год</option>
                                 <option value="1">2022</option>
                                 <option value="0.7">2021</option>
@@ -107,7 +107,7 @@
                     </div>
 
                     <div class="form__item ">
-                        <input type="number" id="mileage" name="mileage" class="form__input" value="0" tabindex="7"/>
+                        <input type="number" id="mileage" name="mileage" class="form__input" value="0" tabindex="7" onkeyup="calculate()"/>
                         <label for="mileage" class="form__label">Пробег, км</label>
                     </div>
 
