@@ -42,6 +42,7 @@ body {
     margin-top: 30px;
 }
 
+
 .form__image img{
     width: 100%;
 }
@@ -74,6 +75,10 @@ body {
     position: relative;
 }
 
+#totalPrice {
+    margin-top: 24px;
+}
+
 /* - Типографика ------------------------------------------- */
 .form__title {
     font-size: 32px;
@@ -103,14 +108,6 @@ body {
     box-sizing: border-box;
 }
 
-.select_error, .input_error {
-    border: solid 1px #E53535;
-}
-
-.select_valid, .input_valid {
-    border: solid 1px #87B237;
-}
-
 .form__select:focus, .form__input:focus {
     border: solid 1px #000000;
 }
@@ -125,10 +122,6 @@ body {
     overflow: hidden;
     color: #a87b09;
 
-}
-
-.form__label:focus {
-    color: #23262F;
 }
 
 p {
@@ -176,7 +169,7 @@ p {
 }
 
 .button_color-red:hover {
-    background-color: #FF8080;
+    background-color: #ff8c8c;
 }
 
 .checkbox__label, .radio__label {

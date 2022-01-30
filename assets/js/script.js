@@ -123,7 +123,12 @@ function calculate() {
         totalPrice = totalPrice + +remoteStart.value;
     }
 
-    document.getElementById('totalPrice').innerHTML = 'Стоимость машины ' + formatter.format(totalPrice) + ' руб.';
+    if(totalPrice > 0){
+        document.getElementById('totalPrice').innerHTML = 'Стоимость машины ' + formatter.format(totalPrice) + ' руб.';
+    } else {
+        document.getElementById('totalPrice').innerHTML = 'Стоимость машины 0 руб.';
+    }
+
 }
 
 
@@ -137,4 +142,8 @@ for (const select of selects) {
     select.addEventListener('select', function () {
        calculate();
     })
+}
+
+calcResult() {
+
 }
