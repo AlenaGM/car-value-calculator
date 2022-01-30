@@ -45,7 +45,7 @@ const parkingAssist = document.getElementById('parkingAssist');
 const remoteStart = document.getElementById('remoteStart');
 
 function calculate() {
-    let totalPrice = modelPrice * yearPrice - mileagePrice ;
+    let totalPrice = modelPrice * yearPrice - mileagePrice;
 
 
     for (const radio of radioMotor) {
@@ -68,72 +68,58 @@ function calculate() {
 
     if (powerSteering.checked === true) {
         totalPrice = totalPrice + +powerSteering.value;
-        console.log(totalPrice);
     }
 
     if (audioSystem.checked === true) {
         totalPrice = totalPrice + +audioSystem.value;
-        console.log(totalPrice);
     }
 
     if (tripComputer.checked === true) {
         totalPrice = totalPrice + +tripComputer.value;
-        console.log(totalPrice);
     }
 
     if (parkingSensor.checked === true) {
         totalPrice = totalPrice + +parkingSensor.value;
-        console.log(totalPrice);
     }
 
     if (rearСamera.checked === true) {
         totalPrice = totalPrice + +rearСamera.value;
-        console.log(totalPrice);
     }
 
     if (climateControl.checked === true) {
         totalPrice = totalPrice + +climateControl.value;
-        console.log(totalPrice);
     }
 
     if (cruiseControl.checked === true) {
         totalPrice = totalPrice + +cruiseControl.value;
-        console.log(totalPrice);
     }
 
     if (infotainment.checked === true) {
         totalPrice = totalPrice + +infotainment.value;
-        console.log(totalPrice);
     }
 
     if (rearWindowHeating.checked === true) {
         totalPrice = totalPrice + +rearWindowHeating.value;
-        console.log(totalPrice);
     }
 
     if (windscreenHeating.checked === true) {
         totalPrice = totalPrice + +windscreenHeating.value;
-        console.log(totalPrice);
     }
 
     if (mirrorsHeating.checked === true) {
         totalPrice = totalPrice + +mirrorsHeating.value;
-        console.log(totalPrice);
     }
 
     if (seatsHeating.checked === true) {
         totalPrice = totalPrice + +seatsHeating.value;
-        console.log(totalPrice);
     }
 
     if (parkingAssist.checked === true) {
         totalPrice = totalPrice + +parkingAssist.value;
-        console.log(totalPrice);
     }
 
     if (remoteStart.checked === true) {
         totalPrice = totalPrice + +remoteStart.value;
-        console.log(totalPrice);
     }
 
     document.getElementById('totalPrice').innerHTML = 'Стоимость машины ' + formatter.format(totalPrice) + ' руб.';
