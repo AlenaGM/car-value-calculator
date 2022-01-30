@@ -144,6 +144,3 @@ for (const select of selects) {
     })
 }
 
-calcResult() {
-
-}
