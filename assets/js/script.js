@@ -135,7 +135,7 @@ function calculate() {
 // Чтобы пересчитывала и показывала промежуточную цену по ходу, если меняются селекты и инпуты
 for (const input of inputs) {
     input.addEventListener('input', function () {
-       calculate();
+        calculate();
     })
 }
 
