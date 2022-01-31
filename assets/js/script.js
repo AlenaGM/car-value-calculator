@@ -8,11 +8,9 @@ const selects = document.querySelectorAll('select')
 const inputs = document.querySelectorAll('input')
 
 // селекты
-
 document.getElementById('carModel').addEventListener('change', function() {
     modelPrice = this.value;
 });
-
 
 document.getElementById('carYear').addEventListener('change', function() {
     yearPrice = this.value;
@@ -46,9 +44,10 @@ const parkingAssist = document.getElementById('parkingAssist');
 const remoteStart = document.getElementById('remoteStart');
 
 function calculate() {
+    //Базовая цена модели, потеря стоимости с годами и км (селекты и инпут)
     let totalPrice = modelPrice * yearPrice - mileagePrice;
 
-
+    //Влияние типа двигателя, привода, кор.передач на базовую цену (радиокнопки)
     for (const radio of radioMotor) {
         if (radio.checked === true) {
             totalPrice = totalPrice * radio.value;
@@ -67,6 +66,7 @@ function calculate() {
         }
     }
 
+    //Увеличение цены при выборе опций (чекбоксы)
     if (powerSteering.checked === true) {
         totalPrice = totalPrice + +powerSteering.value;
     }
@@ -123,15 +123,16 @@ function calculate() {
         totalPrice = totalPrice + +remoteStart.value;
     }
 
+    // Показывает промежуточную цену
+    // Если цена ушла в минус (пример, слишком большой км -> показывать 0)
     if(totalPrice > 0){
         document.getElementById('totalPrice').innerHTML = 'стоимость машины ' + formatter.format(totalPrice) + ' руб.';
     } else {
         document.getElementById('totalPrice').innerHTML = 'стоимость машины 0 руб.';
     }
-
 }
 
-
+// Чтобы пересчитывала и показывала промежуточную цену по ходу, если меняются селекты и инпуты
 for (const input of inputs) {
     input.addEventListener('input', function () {
        calculate();
@@ -144,6 +145,7 @@ for (const select of selects) {
     })
 }
 
+// Чтобы не удалять красивую кнопку -> при нажатии выводит результат в окошко
 let showResult = () =>{
     document.getElementById('formImage').classList.add ('form__invisible');
     document.getElementById('formResult').classList.remove ('form__invisible');
