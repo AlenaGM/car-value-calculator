@@ -16,7 +16,7 @@ body {
     min-height: 100%;
 }
 
-.main__container {
+.form {
     display: grid;
     grid-template-columns: minmax(1rem, 1fr) minmax(auto, 500px) minmax(auto, 700px) minmax(1rem, 1fr);
     grid-template-areas:
@@ -24,7 +24,6 @@ body {
     padding: 3% 0px;
 }
 
-/**/
 .form__deco {
     grid-area: form__deco;
     margin-right: 5%;
@@ -42,29 +41,29 @@ body {
     margin-top: 30px;
 }
 
+.form__image img{
+    width: 100%;
+}
+
 .form__result {
     position: relative;
     display: flex;
-    justify-content: center;
-    margin-top: 30px;
-    border: solid 4px #FFBB26;
-    border-radius: 25px;
     z-index: 1;
+    margin-top: 30px;
     min-width: 80%;
     min-height: 190px;
+    background: url(/assets/img/car-loan.png) 5% 90%/ 120px no-repeat;
+    justify-content: center;
     padding: 50px 10px 20px 10px;
+    border: solid 4px #FFBB26;
+    border-radius: 25px;
     text-align: center;
     font-size: 16px;
     text-transform: uppercase;
-    background: url(/assets/img/car-loan.png) 5% 90%/ 120px no-repeat;
 }
 
 .form__invisible{
     display: none;
-}
-
-.form__image img{
-    width: 100%;
 }
 
 .form__buttons {
@@ -72,6 +71,10 @@ body {
     display: flex;
     margin-top: 80px;
     justify-content: center;
+}
+
+.form__buttons_mobile {
+    display: none;
 }
 
 .form__body {
@@ -89,17 +92,25 @@ body {
 }
 
 .form__item {
-    width: 100%;
-    margin: 0px 0px 24px 0px;
-    align-self: flex-start;
     position: relative;
+    width: 100%;
+    align-self: flex-start;
+    margin: 0px 0px 24px 0px;
+}
+
+.form__options {
+    display: inline-flex;
+}
+
+.form__options div {
+    margin-right: 20px;
 }
 
 #totalPrice {
     margin-top: 24px;
 }
 
-/* - Типографика ------------------------------------------- */
+/* - Типографика, оформление ------------------------------- */
 .form__title {
     font-size: 32px;
     color: #87B237;
@@ -118,14 +129,14 @@ body {
 }
 
 .form__select, .form__input {
+    color: #23262F;
+    width: 250px;
+    box-sizing: border-box;
     padding: 24px 0px 2px 25px;
     background-color: #FFFFFF;
     border: solid 1px #a87b09;;
     border-radius: 8px;
     transition: all 0.5s ease 0s;
-    color: #23262F;
-    width: 250px;
-    box-sizing: border-box;
 }
 
 .form__select:focus, .form__input:focus {
@@ -133,32 +144,22 @@ body {
 }
 
 .form__label {
-    z-index: 1;
     position: absolute;
     top: -10px;
     left: 10px;
+    z-index: 1;
     background-color: #FFFFFF;
     padding: 0px 5px;
     overflow: hidden;
     color: #a87b09;
-
 }
 
 p {
     margin: 0px 0px 12px 0px;
     color: #a87b09;
-
 }
 
-.form__options {
-    display: inline-flex;
-}
-
-.form__options div {
-    margin-right: 20px;
-}
-
-/* - Оформление: ссылки, кнопки ---------------------------- */
+/* - Оформление: кнопки ---------------------------- */
 .button {
     display: inline-flex;
     align-items: center;
@@ -196,13 +197,10 @@ p {
     cursor: pointer;
 }
 
-.form__buttons_mobile {
-    display: none;
-}
-/* --------------------------------------------------------- */
+/* - Медиазапросы ------------------------------------------ */
 
 @media screen and (max-width: 950px) {
-    .main__container {
+    .form {
         display: grid;
         grid-template-columns: minmax(1rem, 1fr) minmax(auto, 975px) minmax(1rem, 1fr);
         grid-template-areas:

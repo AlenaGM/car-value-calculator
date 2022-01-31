@@ -18,7 +18,6 @@ document.getElementById('carYear').addEventListener('change', function() {
 
 document.getElementById('mileage').addEventListener('change', function() {;
     mileagePrice = this.value*10;
-    console.log (mileagePrice);
 });
 
 // радио кнопки
@@ -132,7 +131,7 @@ function calculate() {
     }
 }
 
-// Чтобы пересчитывала и показывала промежуточную цену по ходу, если меняются селекты и инпуты
+// Чтобы пересчитывала и показывала промежуточную цену сразу и по ходу, если меняются селекты и инпуты
 for (const input of inputs) {
     input.addEventListener('input', function () {
         calculate();
