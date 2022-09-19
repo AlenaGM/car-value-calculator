@@ -1,6 +1,6 @@
 # Car-Value-Estimator
 
-Car Value Estimator that helps to determing car's resale value depending on model, year, mileage and additional options the car is equipped with.
+Calculator that helps to determing car's resale value depending on model, year, mileage and additional options the car is equipped with.
 <br><br>
 
 ## Result
