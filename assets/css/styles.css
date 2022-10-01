@@ -18,10 +18,9 @@ body {
 
 .form {
   display: grid;
-  grid-template-columns: minmax(1rem, 1fr) minmax(auto, 500px) minmax(
-      auto,
-      700px
-    ) minmax(1rem, 1fr);
+  grid-template-columns:
+    minmax(1rem, 1fr) minmax(auto, 500px) minmax(auto, 700px)
+    minmax(1rem, 1fr);
   grid-template-areas: ". form__deco form__body .";
   padding: 3% 0px;
 }
@@ -246,5 +245,9 @@ p {
 
   .form__title {
     line-height: 140%;
+  }
+
+  .form__result {
+    background: url(assets/img/car-loan.png) 5% 90%/ 120px no-repeat;
   }
 }
