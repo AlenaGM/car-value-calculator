@@ -1,195 +1,424 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="shortcut icon" href="assets/img/car-loan.png" type="img/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="shortcut icon" href="assets/img/car-loan.png" type="img/png" />
     <title>Car Value Estimator</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="wrapper">
-        <main class="main__container">
-            <form class="form" action="#" id="form" method="post" enctype="multipart/form-data">
+      <main class="main__container">
+        <form
+          class="form"
+          action="#"
+          id="form"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="form__deco">
+            <h1 class="form__title">Сколько стоит автомобиль?</h1>
+            <div class="form__info">
+              Укажите параметры автомобиля и мы определим его стоимось
+            </div>
+            <div class="form__image" id="formImage">
+              <img src="assets/img/car-loan.png" alt="car" />
+            </div>
+            <div class="form__result form__invisible" id="formResult">
+              <div id="finalResult"></div>
+            </div>
+            <div class="form__buttons">
+              <div
+                class="button button_color-green"
+                tabindex="22"
+                onclick="showResult()"
+              >
+                Посчитать
+              </div>
+              <div
+                class="button button_color-red"
+                tabindex="23"
+                onclick="location.reload()"
+              >
+                Сбросить
+              </div>
+            </div>
+            <div id="totalPrice"></div>
+          </div>
 
-                <div class="form__deco">
-                    <h1 class="form__title">Сколько стоит автомобиль?</h1>
-                    <div class="form__info">Укажите параметры автомобиля и мы определим его стоимось
-                    </div>
-                    <div class="form__image" id="formImage">
-                        <img src="assets/img/car-loan.png" alt="car">
-                    </div>
-                    <div class="form__result form__invisible" id="formResult">
-                        <div id="finalResult"></div>
-                    </div>
-                    <div class="form__buttons">
-                        <div class="button button_color-green" tabindex="22" onclick="showResult()">Посчитать</div>
-                        <div class="button button_color-red" tabindex="23" onclick="location.reload()">Сбросить</div>
-                    </div>
-                    <div id="totalPrice"></div>
+          <div class="form__body">
+            <div class="form__item">
+              <label for="carModel" class="form__label">Модель</label>
+              <select
+                id="carModel"
+                name="model"
+                class="form__select"
+                tabindex="1"
+                onclick="calculate()"
+              >
+                <option value="0" disabled selected>Выберите модель</option>
+                <option value="1200000">Renault Clio</option>
+                <option value="2695000">Volkswagen Golf</option>
+                <option value="1068900">Volkswagen Polo</option>
+                <option value="821000">Dacia Sandero</option>
+                <option value="2259900">Volkswagen Tiguan</option>
+                <option value="1849000">Peugeot 2008</option>
+                <option value="1230000">Toyota Yaris</option>
+                <option value="534000">Opel Corsa</option>
+                <option value="1300000">Volkswagen T-Roc</option>
+                <option value="1598000">Toyota Corolla</option>
+              </select>
+            </div>
+
+            <div class="form__item">
+              <label for="carYear" class="form__label">Год</label>
+              <select
+                id="carYear"
+                name="year"
+                class="form__select"
+                tabindex="2"
+                onclick="calculate()"
+              >
+                <option value="1" disabled selected>Выберите год</option>
+                <option value="1">2022</option>
+                <option value="0.81">2021</option>
+                <option value="0.72">2020</option>
+                <option value="0.64">2019</option>
+                <option value="0.55">2018</option>
+                <option value="0.54">2017</option>
+                <option value="0.45">2016</option>
+                <option value="0.35">2015</option>
+                <option value="0.31">2014</option>
+                <option value="0.28">2013</option>
+                <option value="0.27">2012</option>
+                <option value="0.25">2011</option>
+              </select>
+            </div>
+
+            <div class="form__item">
+              <p>Двигатель</p>
+              <div>
+                <input
+                  type="radio"
+                  id="petrol"
+                  name="motor"
+                  value="1"
+                  tabindex="3"
+                  checked
+                />
+                <label for="petrol" class="radio__label">Бензин</label>
+
+                <input
+                  type="radio"
+                  id="diesel"
+                  name="motor"
+                  value="1.1"
+                  tabindex="3"
+                />
+                <label for="diesel" class="radio__label">Дизель</label>
+
+                <input
+                  type="radio"
+                  id="hybrid"
+                  name="motor"
+                  value="1.3"
+                  tabindex="3"
+                />
+                <label for="hybrid" class="radio__label">Гибрид</label>
+              </div>
+            </div>
+
+            <div class="form__item">
+              <p>Привод</p>
+              <div>
+                <input
+                  type="radio"
+                  id="front-wheel"
+                  name="transmission"
+                  value="0"
+                  tabindex="4"
+                  checked
+                />
+                <label for="front-wheel" class="radio__label">Передний</label>
+
+                <input
+                  type="radio"
+                  id="rear-wheel"
+                  name="transmission"
+                  value="70000"
+                  tabindex="4"
+                />
+                <label for="rear-wheel" class="radio__label">Задний</label>
+
+                <input
+                  type="radio"
+                  id="four-wheel"
+                  name="transmission"
+                  value="100000"
+                  tabindex="4"
+                />
+                <label for="four-wheel" class="radio__label">Полный</label>
+              </div>
+            </div>
+
+            <div class="form__item">
+              <p>Коробка передач</p>
+              <div>
+                <input
+                  type="radio"
+                  id="automatic"
+                  name="gearbox"
+                  value="130000"
+                  tabindex="5"
+                />
+                <label for="automatic" class="radio__label">Автомат</label>
+
+                <input
+                  type="radio"
+                  id="manual"
+                  name="gearbox"
+                  value="0"
+                  tabindex="6"
+                  checked
+                />
+                <label for="manual" class="radio__label">Механика</label>
+              </div>
+            </div>
+
+            <div class="form__item">
+              <input
+                type="number"
+                id="mileage"
+                name="mileage"
+                class="form__input"
+                value="0"
+                tabindex="7"
+                onkeyup="calculate()"
+              />
+              <label for="mileage" class="form__label">Пробег, км</label>
+            </div>
+
+            <div class="form__item">
+              <p>Опции</p>
+              <div class="form__options">
+                <div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="powerSteering"
+                      name="powerSteering"
+                      class="checkbox__input"
+                      value="6000"
+                      tabindex="8"
+                    />
+                    <label for="powerSteering" class="checkbox__label"
+                      >Активный усилитель руля</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="audioSystem"
+                      name="audioSystem"
+                      class="checkbox__input"
+                      value="12000"
+                      tabindex="9"
+                    />
+                    <label for="audioSystem" class="checkbox__label"
+                      >Аудиосистема премиум класса</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="tripComputer"
+                      name="tripComputer"
+                      class="checkbox__input"
+                      value="106200"
+                      tabindex="10"
+                    />
+                    <label for="tripComputer" class="checkbox__label"
+                      >Бортовой компьютер</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="parkingSensor"
+                      name="parkingSensor"
+                      class="checkbox__input"
+                      value="16900"
+                      tabindex="11"
+                    />
+                    <label for="parkingSensor" class="checkbox__label"
+                      >Задние датчики парковки</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="rearСamera"
+                      name="rearСamera"
+                      class="checkbox__input"
+                      value="13100"
+                      tabindex="12"
+                    />
+                    <label for="rearСamera" class="checkbox__label"
+                      >Камера заднего вида</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="climateControl"
+                      name="climateControl"
+                      class="checkbox__input"
+                      value="13000"
+                      tabindex="13"
+                    />
+                    <label for="climateControl" class="checkbox__label"
+                      >Климат-контроль</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="cruiseControl"
+                      name="cruiseControl"
+                      class="checkbox__input"
+                      value="6000"
+                      tabindex="14"
+                    />
+                    <label for="cruiseControl" class="checkbox__label"
+                      >Круиз-контроль</label
+                    >
+                  </div>
                 </div>
-
-                <div class="form__body">
-                    <div class="form__item">
-                            <label for="carModel" class="form__label">Модель</label>
-                            <select  id="carModel" name="model" class="form__select" tabindex="1" onclick="calculate()">
-                                <option value="0" disabled selected>Выберите модель</option>
-                                <option value="1200000">Renault Clio</option>
-                                <option value="2695000">Volkswagen Golf</option>
-                                <option value="1068900">Volkswagen Polo</option>
-                                <option value="821000">Dacia Sandero</option>
-                                <option value="2259900">Volkswagen Tiguan</option>
-                                <option value="1849000">Peugeot 2008</option>
-                                <option value="1230000">Toyota Yaris</option>
-                                <option value="534000">Opel Corsa</option>
-                                <option value="1300000">Volkswagen T-Roc</option>
-                                <option value="1598000">Toyota Corolla</option>
-                            </select>
-                    </div>
-
-                    <div class="form__item">
-                            <label for="carYear" class="form__label">Год</label>
-                            <select  id="carYear" name="year" class="form__select" tabindex="2" onclick="calculate()">
-                                <option value="1" disabled selected>Выберите год</option>
-                                <option value="1">2022</option>
-                                <option value="0.81">2021</option>
-                                <option value="0.72">2020</option>
-                                <option value="0.64">2019</option>
-                                <option value="0.55">2018</option>
-                                <option value="0.54">2017</option>
-                                <option value="0.45">2016</option>
-                                <option value="0.35">2015</option>
-                                <option value="0.31">2014</option>
-                                <option value="0.28">2013</option>
-                                <option value="0.27">2012</option>
-                                <option value="0.25">2011</option>
-                            </select>
-                    </div>
-
-                    <div class="form__item">
-                        <p>Двигатель</p>
-                        <div>
-                            <input type="radio" id="petrol" name="motor" value="1" tabindex="3" checked>
-                            <label for="petrol" class="radio__label">Бензин</label>
-
-                            <input type="radio" id="diesel" name="motor" value="1.1" tabindex="3">
-                            <label for="diesel" class="radio__label">Дизель</label>
-
-                            <input type="radio" id="hybrid" name="motor" value="1.3" tabindex="3">
-                            <label for="hybrid" class="radio__label">Гибрид</label>
-                        </div>
-                    </div>
-
-                    <div class="form__item">
-                        <p>Привод</p>
-                        <div>
-                            <input type="radio" id="front-wheel" name="transmission" value="0" tabindex="4" checked>
-                            <label for="front-wheel" class="radio__label">Передний</label>
-
-                            <input type="radio" id="rear-wheel" name="transmission" value="70000" tabindex="4">
-                            <label for="rear-wheel" class="radio__label">Задний</label>
-
-                            <input type="radio" id="four-wheel" name="transmission" value="100000" tabindex="4">
-                            <label for="four-wheel" class="radio__label">Полный</label>
-                        </div>
-                    </div>
-
-                    <div class="form__item">
-                        <p>Коробка передач</p>
-                        <div>
-                            <input type="radio" id="automatic" name="gearbox" value="130000" tabindex="5">
-                            <label for="automatic" class="radio__label">Автомат</label>
-
-                            <input type="radio" id="manual" name="gearbox" value="0" tabindex="6" checked>
-                            <label for="manual" class="radio__label">Механика</label>
-                        </div>
-                    </div>
-
-                    <div class="form__item ">
-                        <input type="number" id="mileage" name="mileage" class="form__input" value="0" tabindex="7" onkeyup="calculate()"/>
-                        <label for="mileage" class="form__label">Пробег, км</label>
-                    </div>
-
-                    <div class="form__item">
-                        <p>Опции</p>
-                        <div class="form__options">
-                            <div>
-                                <div>
-                                    <input type="checkbox" id="powerSteering" name="powerSteering" class="checkbox__input" value="6000" tabindex="8"/>
-                                    <label for="powerSteering" class="checkbox__label">Активный усилитель руля</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="audioSystem" name="audioSystem" class="checkbox__input" value="12000" tabindex="9"/>
-                                    <label for="audioSystem" class="checkbox__label">Аудиосистема премиум класса</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="tripComputer" name="tripComputer" class="checkbox__input" value="106200" tabindex="10"/>
-                                    <label for="tripComputer" class="checkbox__label">Бортовой компьютер</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="parkingSensor" name="parkingSensor" class="checkbox__input" value="16900" tabindex="11"/>
-                                    <label for="parkingSensor" class="checkbox__label">Задние датчики парковки</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="rearСamera" name="rearСamera" class="checkbox__input" value="13100" tabindex="12"/>
-                                    <label for="rearСamera" class="checkbox__label">Камера заднего вида</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="climateControl" name="climateControl" class="checkbox__input" value="13000" tabindex="13"/>
-                                    <label for="climateControl" class="checkbox__label">Климат-контроль</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="cruiseControl" name="cruiseControl" class="checkbox__input" value="6000" tabindex="14"/>
-                                    <label for="cruiseControl" class="checkbox__label">Круиз-контроль</label>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <input type="checkbox" id="infotainment" name="infotainment" class="checkbox__input" value="25000" tabindex="15"/>
-                                    <label for="infotainment" class="checkbox__label">Мультимедийная система</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="rearWindowHeating" name="rearWindowHeating" class="checkbox__input" value="8000" tabindex="16"/>
-                                    <label for="rearWindowHeating" class="checkbox__label">Обогрев заднего стекла</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="windscreenHeating" name="windscreenHeating" class="checkbox__input" value="14000" tabindex="17"/>
-                                    <label for="windscreenHeating" class="checkbox__label">Обогрев лобового стекла</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="mirrorsHeating" name="mirrorHeating" class="checkbox__input" value="7500" tabindex="18"/>
-                                    <label for="mirrorsHeating" class="checkbox__label">Обогрев наружных зеркал</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="seatsHeating" name="seatsHeating" class="checkbox__input" value="9000" tabindex="19"/>
-                                    <label for="seatsHeating" class="checkbox__label">Обогрев сидений</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="parkingAssist" name="parkingAssist" class="checkbox__input" value="28000" tabindex="20"/>
-                                    <label for="parkingAssist" class="checkbox__label">Система автоматической парковки</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" id="remoteStart" name="remoteStart" class="checkbox__input" value="18490" tabindex="21"/>
-                                    <label for="remoteStart" class="checkbox__label">Дистанционный запуск двигателя</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="infotainment"
+                      name="infotainment"
+                      class="checkbox__input"
+                      value="25000"
+                      tabindex="15"
+                    />
+                    <label for="infotainment" class="checkbox__label"
+                      >Мультимедийная система</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="rearWindowHeating"
+                      name="rearWindowHeating"
+                      class="checkbox__input"
+                      value="8000"
+                      tabindex="16"
+                    />
+                    <label for="rearWindowHeating" class="checkbox__label"
+                      >Обогрев заднего стекла</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="windscreenHeating"
+                      name="windscreenHeating"
+                      class="checkbox__input"
+                      value="14000"
+                      tabindex="17"
+                    />
+                    <label for="windscreenHeating" class="checkbox__label"
+                      >Обогрев лобового стекла</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="mirrorsHeating"
+                      name="mirrorHeating"
+                      class="checkbox__input"
+                      value="7500"
+                      tabindex="18"
+                    />
+                    <label for="mirrorsHeating" class="checkbox__label"
+                      >Обогрев наружных зеркал</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="seatsHeating"
+                      name="seatsHeating"
+                      class="checkbox__input"
+                      value="9000"
+                      tabindex="19"
+                    />
+                    <label for="seatsHeating" class="checkbox__label"
+                      >Обогрев сидений</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="parkingAssist"
+                      name="parkingAssist"
+                      class="checkbox__input"
+                      value="28000"
+                      tabindex="20"
+                    />
+                    <label for="parkingAssist" class="checkbox__label"
+                      >Система автоматической парковки</label
+                    >
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="remoteStart"
+                      name="remoteStart"
+                      class="checkbox__input"
+                      value="18490"
+                      tabindex="21"
+                    />
+                    <label for="remoteStart" class="checkbox__label"
+                      >Дистанционный запуск двигателя</label
+                    >
+                  </div>
                 </div>
-                <div class="form__buttons_mobile">
-                    <div class="button button_color-green" tabindex="22" onclick="showResult()">Посчитать</div>
-                    <div class="button button_color-red" tabindex="23" onclick="location.reload()">Сбросить</div>
-                </div>
-
-            </form>
-        </main>
+              </div>
+            </div>
+          </div>
+          <div class="form__buttons_mobile">
+            <div
+              class="button button_color-green"
+              tabindex="22"
+              onclick="showResult()"
+            >
+              Посчитать
+            </div>
+            <div
+              class="button button_color-red"
+              tabindex="23"
+              onclick="location.reload()"
+            >
+              Сбросить
+            </div>
+          </div>
+        </form>
+      </main>
     </div>
     <script src="assets/js/script.js"></script>
-</body>
+  </body>
 </html>
