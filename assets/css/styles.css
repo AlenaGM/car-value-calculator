@@ -237,7 +237,7 @@ p {
     grid-area: form__buttons_mobile;
     display: inline-flex;
     justify-content: center;
-    margin-top: 50px;
+    margin: 24px 0px;
   }
 
   .form__info {
@@ -252,6 +252,7 @@ p {
   }
 
   .form__title {
+    margin-top: 24px;
     line-height: 140%;
   }
 
