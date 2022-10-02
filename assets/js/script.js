@@ -148,9 +148,11 @@ for (const select of selects) {
 
 //result showing
 let showResult = () => {
-  document.getElementById("formImage").classList.add("form__invisible");
-  document.getElementById("formResult").classList.remove("form__invisible");
-  document.getElementById("finalResult").innerHTML =
-    document.getElementById("totalPrice").innerHTML;
-  document.getElementById("totalPrice").innerHTML = "";
+  if (modelPrice > 0) {
+    document.getElementById("formImage").classList.add("form__invisible");
+    document.getElementById("formResult").classList.remove("form__invisible");
+    document.getElementById("finalResult").innerHTML =
+      document.getElementById("totalPrice").innerHTML;
+    document.getElementById("totalPrice").innerHTML = "";
+  }
 };
