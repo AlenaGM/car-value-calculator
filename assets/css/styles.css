@@ -21,8 +21,14 @@ body {
   grid-template-columns:
     minmax(1rem, 1fr) minmax(auto, 500px) minmax(auto, 700px)
     minmax(1rem, 1fr);
-  grid-template-areas: ". form__deco form__body .";
+  grid-template-areas:
+    ". form__presentation form__body ."
+    ". form__deco form__body .";
   padding: 3% 0px;
+}
+
+.form__presentation {
+  grid-area: form__presentation;
 }
 
 .form__deco {
@@ -211,8 +217,9 @@ p {
         1fr
       );
     grid-template-areas:
-      ". form__deco ."
+      ". form__presentation ."
       ". form__body ."
+      ". form__deco ."
       ". form__buttons_mobile .";
     padding: 3% 0px;
   }
