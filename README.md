@@ -1,4 +1,4 @@
-# Car-Value-Estimator
+# Car-Value-Estimator 🚘
 
 Calculator that helps to estimate car resale value depending on model, year, mileage and additional options the car is equipped with.
 <br><br>
