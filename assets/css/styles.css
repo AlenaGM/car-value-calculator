@@ -8,7 +8,7 @@ body {
   font-family: "Didact Gothic", sans-serif;
 }
 
-/* - Позиционирование -------------------------------------- */
+/* - Positioning -------------------------------------- */
 .wrapper {
   overflow: hidden;
   display: flex;
@@ -86,7 +86,7 @@ body {
 
 .form__body {
   grid-area: form__body;
-  margin-left: 5%;
+  margin: 0 auto;
   padding-top: 15px;
   display: flex;
   flex-direction: column;
@@ -117,7 +117,7 @@ body {
   margin-top: 24px;
 }
 
-/* - Типографика, оформление ------------------------------- */
+/* - Typography, decoration ------------------------------- */
 .form__title {
   font-size: 32px;
   color: #87b237;
@@ -169,7 +169,7 @@ p {
   color: #a87b09;
 }
 
-/* - Оформление: кнопки ---------------------------- */
+/* - Decoration: buttons ---------------------------- */
 .button {
   display: inline-flex;
   align-items: center;
@@ -208,7 +208,7 @@ p {
   cursor: pointer;
 }
 
-/* - Медиазапросы ------------------------------------------ */
+/* - Media Queries ------------------------------------------ */
 
 @media screen and (max-width: 950px) {
   .form {
