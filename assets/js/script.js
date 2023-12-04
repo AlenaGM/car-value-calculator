@@ -147,6 +147,7 @@ for (const select of selects) {
 }
 
 //result showing
+// eslint-disable-next-line no-unused-vars
 let showResult = () => {
   if (modelPrice > 0) {
     document.getElementById("formImage").classList.add("form__invisible");
