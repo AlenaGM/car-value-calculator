@@ -1,6 +1,6 @@
-# Car-Value-Estimator 🚘
+# Car Value Calculator 🚘
 
-Training project: calculator that helps to estimate car's resale value depending on model, year, mileage and additional options the car is equipped with.
+Learning project: a JavaScript calculator that estimates a car's resale value based on its model, year, mileage, and additional options.
 
 <br><br>
 
@@ -10,7 +10,7 @@ Training project: calculator that helps to estimate car's resale value depending
 
 ## Demo
 
-[Car-Value-Estimator]
+[Car Value Calculator]
 
 ## Tech stack
 
@@ -21,4 +21,4 @@ Training project: calculator that helps to estimate car's resale value depending
 <br><br> \* _Week 16 Training Project in [ITGirlSchool]_
 
 [ITGirlSchool]: https://itgirlschool.com/en
-[Car-Value-Estimator]: https://alenagm.github.io/Car-Value-Estimator/
+[Car Value Calculator]: https://alenagm.github.io/car-value-calculator/
