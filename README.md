@@ -1,7 +1,6 @@
 # Car Value Calculator 🚘
 
 Learning project: a JavaScript calculator that estimates a car's resale value based on its model, year, mileage, and additional options.
-
 <br><br>
 
 ## Result
